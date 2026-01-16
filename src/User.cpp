@@ -22,7 +22,6 @@ void loop() {
     /* BTN_1を押すまで待つ */
     while (digitalRead(PIN_BTN1) == LOW) {}
 
-
     while (1) {
         lineL = analogRead(PIN_LINE_L); //地面の明るさ左 0~4095
         lineR = analogRead(PIN_LINE_R); //地面の明るさ右 0~4095
@@ -30,7 +29,6 @@ void loop() {
         gain_switch = analogRead(PIN_TOGGLE);
 
         switch(gain_switch){
-
         	case 0 :
         		pGain = (float)analogRead(PIN_VOLUME) / 100.0f;
         		break;
@@ -46,8 +44,6 @@ void loop() {
         	default :
         		break;
         }
-
-
 
         error = lineL - lineR;  //偏差 -4095~4095
         diff = error - last_error;
